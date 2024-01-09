@@ -38,7 +38,6 @@ export default function Sidebar() {
 
       <div className="available-credit">
         <div className="wallet-icon">
-          {/* <FaHouseChimney /> */}
           <FaWallet />
         </div>
         <div className="wallet-content">
