@@ -1,4 +1,6 @@
-import { FaChevronDown, FaWallet } from "react-icons/fa6";
+import { CiWallet } from "react-icons/ci";
+import { FaChevronDown } from "react-icons/fa6";
+
 import menus from "../data";
 import "../payouts.css";
 
@@ -38,7 +40,7 @@ export default function Sidebar() {
 
       <div className="available-credit">
         <div className="wallet-icon">
-          <FaWallet />
+          <CiWallet size="30" />
         </div>
         <div className="wallet-content">
           <h5>Available credits</h5>
