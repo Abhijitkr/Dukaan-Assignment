@@ -26,12 +26,12 @@ export const menus = [
   {
     label: "Delivery",
     to: "/delivery",
-    icon: <FiTruck />,
+    icon: <FiTruck size="19" />,
   },
   {
     label: "Marketing",
     to: "/marketing",
-    icon: <AiOutlineSound />,
+    icon: <AiOutlineSound size="20" />,
   },
   {
     label: "Analytics",
