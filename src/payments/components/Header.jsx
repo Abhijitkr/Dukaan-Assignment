@@ -8,7 +8,7 @@ export default function Header() {
   const [inputFocus, setInputFocus] = useState(false);
 
   return (
-    <section className="flex justify-between items-center shadow px-10 h-16">
+    <section className="flex justify-between items-center shadow px-10 h-16 bg-white">
       <div className="flex gap-5">
         <h4>Payments</h4>
         <small className="flex items-center gap-1 text-gray-600">
@@ -27,7 +27,7 @@ export default function Header() {
           name="Search"
           id=""
           placeholder="Search features, tutorials, etc."
-          className="bg-[#F2F2F2] p-2 w-80 outline-none placeholder:text-gray-400"
+          className="bg-[#F2F2F2] p-2 w-80 outline-none placeholder:text-gray-500"
           onFocus={() => setInputFocus(true)}
           onBlur={() => setInputFocus(false)}
         />
