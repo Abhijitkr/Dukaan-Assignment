@@ -1,8 +1,8 @@
 import { GoQuestion } from "react-icons/go";
-import { CiSearch } from "react-icons/ci";
 import { useState } from "react";
 import { RiMessage2Fill } from "react-icons/ri";
 import { TiArrowSortedDown } from "react-icons/ti";
+import { FiSearch } from "react-icons/fi";
 
 export default function Header() {
   const [inputFocus, setInputFocus] = useState(false);
@@ -18,16 +18,16 @@ export default function Header() {
       </div>
       <div
         className={`flex items-center bg-[#F2F2F2] px-2 rounded-md ${
-          inputFocus ? "border border-gray-300" : ""
+          inputFocus ? "ring-1 ring-gray-300" : ""
         }`}
       >
-        <CiSearch size="20" className="text-gray-600 " />
+        <FiSearch size="20" className="text-gray-400 " />
         <input
           type="text"
           name="Search"
           id=""
           placeholder="Search features, tutorials, etc."
-          className="bg-[#F2F2F2] p-2 w-80 outline-none placeholder:text-gray-500"
+          className="bg-[#F2F2F2] p-2 w-80 outline-none placeholder:text-gray-500 "
           onFocus={() => setInputFocus(true)}
           onBlur={() => setInputFocus(false)}
         />
