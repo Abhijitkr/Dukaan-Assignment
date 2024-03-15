@@ -4,7 +4,7 @@ import menus from "../data";
 
 export default function Sidebar() {
   return (
-    <div className="bg-[#1e2640] text-white h-screen relative">
+    <div className="bg-[#1e2640] text-white h-full relative">
       <div className="flex gap-4 p-4 items-center">
         <div className="w-16">
           <img

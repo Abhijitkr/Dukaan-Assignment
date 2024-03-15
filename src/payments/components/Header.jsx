@@ -17,11 +17,11 @@ export default function Header() {
         </small>
       </div>
       <div
-        className={`flex items-center bg-[#F2F2F2] px-2 rounded-md ${
+        className={`flex items-center bg-[#F2F2F2] px-4 rounded-md ${
           inputFocus ? "ring-1 ring-gray-300" : ""
         }`}
       >
-        <FiSearch size="20" className="text-gray-400 " />
+        <FiSearch size="18" className="text-gray-400" />
         <input
           type="text"
           name="Search"
