@@ -17,7 +17,7 @@ const transactions = [
   },
 ];
 
-const transactionData = Array.from({ length: 10 }, () => transactions[0]);
+const transactionData = Array.from({ length: 20 }, () => transactions[0]);
 
 export default function Payouts() {
   const [inputFocus, setInputFocus] = useState(false);
@@ -25,12 +25,12 @@ export default function Payouts() {
 
   return (
     <div className="flex w-full">
-      <div className="w-[17%]">
+      <div className="w-[16%] relative">
         <Sidebar />
       </div>
-      <div className="w-[83%] bg-gray-50">
+      <div className="w-[84%] bg-gray-50">
         <Header />
-        <div className="flex justify-between py-7 px-10">
+        <div className="flex justify-between py-7 px-10 mt-16">
           <h3 className="text-xl font-medium">Overview</h3>
           <div className="text-gray-600 border p-1 px-1 pr-2 cursor-pointer bg-white rounded-sm">
             <select

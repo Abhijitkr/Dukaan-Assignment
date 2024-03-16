@@ -4,13 +4,13 @@ import menus from "../data";
 
 export default function Sidebar() {
   return (
-    <div className="bg-[#1e2640] text-white h-full relative">
+    <div className="bg-[#1e2640] text-white h-screen fixed w-[16%]">
       <div className="flex gap-4 p-4 items-center">
-        <div className="w-16">
+        <div className="w-14">
           <img
             src="src\payments\images\logo.png"
             alt="Nishyan"
-            className="rounded-md h-12 w-full"
+            className="rounded-md h-11 w-full"
           />
         </div>
         <div className="flex w-full justify-between items-center">
@@ -44,13 +44,15 @@ export default function Sidebar() {
           : null}
       </div>
 
-      <div className="absolute bottom-5 left-5 w-[85%] bg-[#353c53] rounded-md flex px-4 py-3 items-center gap-6">
-        <div className="bg-[#494f64] p-2 rounded-md">
-          <CiWallet size="30" />
-        </div>
-        <div>
-          <h5 className="text-gray-200">Available credits</h5>
-          <h4 className="text-xl font-medium">222.10</h4>
+      <div className="absolute bottom-4 flex w-full">
+        <div className="bg-[#353c53] rounded-md flex px-4 py-3 items-center gap-4 w-full mx-4">
+          <div className="bg-[#494f64] p-2 rounded-md">
+            <CiWallet size="30" />
+          </div>
+          <div>
+            <h5 className="text-gray-200">Available credits</h5>
+            <h4 className="text-xl font-medium">224.10</h4>
+          </div>
         </div>
       </div>
     </div>

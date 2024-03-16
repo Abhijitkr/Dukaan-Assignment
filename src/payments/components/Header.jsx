@@ -8,7 +8,7 @@ export default function Header() {
   const [inputFocus, setInputFocus] = useState(false);
 
   return (
-    <section className="flex justify-between items-center shadow px-10 h-16 bg-white">
+    <section className="flex justify-between items-center shadow px-10 h-16 bg-white fixed w-[84%]">
       <div className="flex gap-5">
         <h4>Payments</h4>
         <small className="flex items-center gap-1 text-gray-600">
