@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Cards from "./components/Cards";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
@@ -7,6 +7,7 @@ import { FiSearch } from "react-icons/fi";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { HiOutlineInformationCircle } from "react-icons/hi2";
 import { LuArrowDownUp, LuArrowUpDown } from "react-icons/lu";
+import Pagination from "./components/Pagination";
 
 const transactions = [
   {
@@ -19,9 +20,29 @@ const transactions = [
 
 const transactionData = Array.from({ length: 20 }, () => transactions[0]);
 
+function getTransactions(page, limit) {
+  let array = [];
+  for (let i = (page - 1) * limit; i < page * limit; i++) {
+    array.push(transactionData[i]);
+  }
+  return array;
+}
+
+function getTransactionsLength() {
+  return transactionData.length;
+}
+
 export default function Payouts() {
   const [inputFocus, setInputFocus] = useState(false);
   const [isSorted, setIsSorted] = useState(false);
+
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(5);
+
+  useEffect(() => {
+    console.log(getTransactions(page, limit));
+    console.log(getTransactionsLength());
+  }, []);
 
   return (
     <div className="flex w-full">
@@ -119,6 +140,7 @@ export default function Payouts() {
               ))}
             </tbody>
           </table>
+          <Pagination />
         </div>
       </div>
     </div>
