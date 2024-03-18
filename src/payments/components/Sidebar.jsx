@@ -1,10 +1,10 @@
 import { CiWallet } from "react-icons/ci";
 import { FaChevronDown } from "react-icons/fa6";
-import menus from "../data";
+import menus from "../utils/sidebarIcons";
 
 export default function Sidebar() {
   return (
-    <div className="bg-[#1e2640] text-white h-screen fixed w-[16%]">
+    <div className="bg-[#1e2640] text-white h-screen fixed w-[17%]">
       <div className="flex gap-4 p-4 items-center">
         <div className="w-14">
           <img

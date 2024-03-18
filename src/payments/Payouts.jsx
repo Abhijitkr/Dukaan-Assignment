@@ -8,48 +8,26 @@ import { TiArrowSortedDown } from "react-icons/ti";
 import { HiOutlineInformationCircle } from "react-icons/hi2";
 import { LuArrowDownUp, LuArrowUpDown } from "react-icons/lu";
 import Pagination from "./components/Pagination";
-
-const transactions = [
-  {
-    orderId: "#281209",
-    orderDate: "7 July, 2023",
-    orderAmount: "₹1,278.23",
-    transactionFees: "₹22",
-  },
-];
-
-const transactionData = Array.from({ length: 20 }, () => transactions[0]);
-
-function getTransactions(page, limit) {
-  let array = [];
-  for (let i = (page - 1) * limit; i < page * limit; i++) {
-    array.push(transactionData[i]);
-  }
-  return array;
-}
-
-function getTransactionsLength() {
-  return transactionData.length;
-}
+import {
+  getTransactions,
+  getTransactionsLength,
+} from "./utils/transactionData";
 
 export default function Payouts() {
   const [inputFocus, setInputFocus] = useState(false);
   const [isSorted, setIsSorted] = useState(false);
 
-  const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(5);
+  const [page, setPage] = useState(14);
+  const [limit, setLimit] = useState(19);
 
-  useEffect(() => {
-    console.log(getTransactions(page, limit));
-    console.log(getTransactionsLength());
-  }, []);
+  let totalPage = Math.ceil(getTransactionsLength() / limit);
 
   return (
     <div className="flex w-full">
-      <div className="w-[16%] relative">
+      <div className="w-[17%] relative">
         <Sidebar />
       </div>
-      <div className="w-[84%] bg-gray-50">
+      <div className="w-[83%] bg-gray-50">
         <Header />
         <div className="flex justify-between py-7 px-10 mt-16">
           <h3 className="text-xl font-medium">Overview</h3>
@@ -72,7 +50,7 @@ export default function Payouts() {
         <h3 className="text-xl font-medium py-7 px-10">
           Transactions | This Month
         </h3>
-        <div className="bg-white mx-10 p-4 rounded-md">
+        <div className="bg-white m-10 p-4 mt-0 rounded-md">
           <div className="flex justify-between items-center">
             <div
               className={`flex items-center px-4 rounded-md border border-gray-300 w-80 ${
@@ -90,7 +68,7 @@ export default function Payouts() {
                 onBlur={() => setInputFocus(false)}
               />
             </div>
-            {/* TODO: Add Sorting Functionality */}
+
             <div className="flex gap-2">
               <button
                 className="border border-gray-300 p-1 px-3 rounded-md text-gray-600 flex items-center gap-2 text-lg"
@@ -126,7 +104,7 @@ export default function Payouts() {
               </tr>
             </thead>
             <tbody>
-              {transactionData.map((data, index) => (
+              {getTransactions(page, limit).map((data, index) => (
                 <tr className="flex border-b mx-3 py-3" key={index}>
                   <td className="w-1/4 text-[#146EB4] font-medium">
                     {data.orderId}
@@ -140,7 +118,12 @@ export default function Payouts() {
               ))}
             </tbody>
           </table>
-          <Pagination />
+          <Pagination
+            totalPage={totalPage}
+            page={page}
+            limit={limit}
+            siblings={1}
+          />
         </div>
       </div>
     </div>
