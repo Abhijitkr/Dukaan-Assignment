@@ -7,20 +7,41 @@ import { FiSearch } from "react-icons/fi";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { HiOutlineInformationCircle } from "react-icons/hi2";
 import { LuArrowDownUp, LuArrowUpDown } from "react-icons/lu";
-import Pagination from "./components/Pagination";
+import ReactPaginate from "react-paginate";
 import {
-  getTransactions,
-  getTransactionsLength,
-} from "./utils/transactionData";
+  MdOutlineKeyboardArrowLeft,
+  MdOutlineKeyboardArrowRight,
+} from "react-icons/md";
+
+const transactions = [
+  {
+    orderId: "#281209",
+    orderDate: "7 July, 2023",
+    orderAmount: "₹1,278.23",
+    transactionFees: "₹22",
+  },
+];
+
+export const transactionData = Array.from(
+  { length: 330 },
+  () => transactions[0]
+);
 
 export default function Payouts() {
   const [inputFocus, setInputFocus] = useState(false);
   const [isSorted, setIsSorted] = useState(false);
 
-  const [page, setPage] = useState(14);
-  const [limit, setLimit] = useState(19);
+  const [itemOffset, setItemOffset] = useState(0);
+  const itemsPerPage = 19;
 
-  let totalPage = Math.ceil(getTransactionsLength() / limit);
+  const endOffset = itemOffset + itemsPerPage;
+  const currentItems = transactionData.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(transactionData.length / itemsPerPage);
+
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % transactionData.length;
+    setItemOffset(newOffset);
+  };
 
   return (
     <div className="flex w-full">
@@ -104,7 +125,7 @@ export default function Payouts() {
               </tr>
             </thead>
             <tbody>
-              {getTransactions(page, limit).map((data, index) => (
+              {currentItems.map((data, index) => (
                 <tr className="flex border-b mx-3 py-3" key={index}>
                   <td className="w-1/4 text-[#146EB4] font-medium">
                     {data.orderId}
@@ -118,11 +139,29 @@ export default function Payouts() {
               ))}
             </tbody>
           </table>
-          <Pagination
-            totalPage={totalPage}
-            page={page}
-            limit={limit}
-            siblings={1}
+          <ReactPaginate
+            breakLabel="..."
+            nextLabel={
+              <span className="border-2 rounded-md flex items-center p-1 pl-2 cursor-pointer mx-5">
+                Next
+                <MdOutlineKeyboardArrowRight size="20" className=" mb-[-2px]" />
+              </span>
+            }
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={5}
+            marginPagesDisplayed={1}
+            pageCount={pageCount}
+            previousLabel={
+              <span className="border-2 rounded-md flex items-center p-1 pr-2 cursor-pointer mx-5">
+                <MdOutlineKeyboardArrowLeft size="20" className=" mb-[-2px]" />
+                Previous
+              </span>
+            }
+            renderOnZeroPageCount={null}
+            pageLinkClassName="p-2"
+            breakClassName="mx-3"
+            activeClassName="bg-[#146EB4] text-white rounded-md mx-2 cursor-pointer py-1"
+            containerClassName="flex justify-center items-center m-8 select-none"
           />
         </div>
       </div>
