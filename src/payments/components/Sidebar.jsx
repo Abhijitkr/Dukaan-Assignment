@@ -1,17 +1,14 @@
 import { CiWallet } from "react-icons/ci";
 import { FaChevronDown } from "react-icons/fa6";
 import menus from "../utils/sidebarIcons";
+import logo from "../images/logo.png";
 
 export default function Sidebar() {
   return (
-    <div className="bg-[#1e2640] text-white h-screen fixed w-[17%]">
+    <div className="bg-[#1e2640] text-white h-full fixed w-[17%]">
       <div className="flex gap-4 p-4 items-center">
         <div className="w-14">
-          <img
-            src="src\payments\images\logo.png"
-            alt="Nishyan"
-            className="rounded-md h-11 w-full"
-          />
+          <img src={logo} alt="Nishyan" className="rounded-md h-11 w-full" />
         </div>
         <div className="flex w-full justify-between items-center">
           <div>

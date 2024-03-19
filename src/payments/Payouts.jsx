@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Cards from "./components/Cards";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
@@ -45,7 +45,7 @@ export default function Payouts() {
 
   return (
     <div className="flex w-full">
-      <div className="w-[17%] relative">
+      <div className="w-[17%] relative h-full">
         <Sidebar />
       </div>
       <div className="w-[83%] bg-gray-50">
@@ -60,7 +60,7 @@ export default function Payouts() {
               defaultValue="lastMonth"
             >
               <option value="lastMonth">Last Month</option>
-              <option value="jan">January</option>
+              <option value="thisMonth">This Month</option>
             </select>
           </div>
         </div>
