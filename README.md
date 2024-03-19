@@ -9,7 +9,7 @@ Welcome to the frontend engineer internship assessment for Dukaan! This reposito
 
 The project aims to replicate the provided Figma design using React Vite. It includes features like pagination, and it's styled using Tailwind CSS for responsive and modern UI design. React Icons are used for adding icons throughout the application.
 
-# [**LIVE SITE**](https://dukaan-payment.netlify.app/)
+## [**LIVE SITE**](https://dukaan-payment.netlify.app/) | [DEMO VIDEO](https://youtu.be/JvvM8Vql3ks)
 
 ## Screen
 
